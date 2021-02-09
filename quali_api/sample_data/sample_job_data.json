@@ -1,0 +1,45 @@
+{
+  "name": "job1",
+  "description": null,
+  "executionServers": [],
+  "loggingProfile": "None",
+  "estimatedDuration": 123,
+  "stopOnFail": false,
+  "stopOnError": false,
+  "tests": [
+    {
+      "TestPath": "TestShell\\Tests\\Shared\\TestWithInputs",
+      "TestDuration": "123",
+      "Parameters": [
+        {
+          "ParameterName": "InStr",
+          "ParameterValue": "a"
+        },
+        {
+          "ParameterName": "InNum",
+          "ParameterValue": "1"
+        },
+        {
+          "ParameterName": "InStrVect",
+          "ParameterValue": "['b', 'c', 'd']"
+        },
+        {
+          "ParameterName": "InNumVect",
+          "ParameterValue": "[2, 3, 4]"
+        },
+        {
+          "ParameterName": "InStrMat",
+          "ParameterValue": "['e', 'f', 'g';'h', 'i', 'j';]"
+        },
+        {
+          "ParameterName": "InNumMat",
+          "ParameterValue": "[5, 6, 7;8, 9, 10;]"
+        }
+      ]
+    }
+  ],
+  "topology": null,
+  "durationTimeBuffer": 10,
+  "emailNotifications": "All",
+  "type": "TestShell"
+}

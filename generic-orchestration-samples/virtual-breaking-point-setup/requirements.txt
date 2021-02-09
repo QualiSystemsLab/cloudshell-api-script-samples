@@ -1,0 +1,2 @@
+cloudshell-orch-core==1.7.5.6
+cloudshell-orch-vbp>=1.0.0,<1.1.0

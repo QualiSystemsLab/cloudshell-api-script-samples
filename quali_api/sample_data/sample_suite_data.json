@@ -1,0 +1,68 @@
+{
+  "SuiteTemplateName": "My Demo Suite",
+  "SuiteName": "Quali API Suite",
+  "Description": "this is a suite ran through API",
+  "Type": "TestShell",
+  "Owner": "admin",
+  "EmailNotifications": "ErrorsOnly",
+  "RemoveJobsFromQueueAfter": -1,
+  "EndReservationOnEnd": true,
+  "JobsDetails": [
+    {
+      "Name": "First Job Sample",
+      "Description": "sample description",
+      "ExecutionServers": [],
+      "LoggingProfile": "None",
+      "EstimatedDuration": 2,
+      "StopOnFail": false,
+      "StopOnError": false,
+      "Tests": [
+        {
+          "TestPath": "TestShell\\Tests\\Shared\\Demo\\input_demo",
+          "State": null,
+          "StartTime": null,
+          "EndTime": null,
+          "Result": null,
+          "ReportId": null,
+          "Parameters": [
+            {
+              "ParameterName": "InStr",
+              "ParameterValue": "a"
+            },
+            {
+              "ParameterName": "InNum",
+              "ParameterValue": "1"
+            },
+            {
+              "ParameterName": "InStrVect",
+              "ParameterValue": "['b', 'c', 'd']"
+            },
+            {
+              "ParameterName": "InNumVect",
+              "ParameterValue": "[2, 3, 4]"
+            },
+            {
+              "ParameterName": "InStrMat",
+              "ParameterValue": "['e', 'f', 'g';'h', 'i', 'j';]"
+            },
+            {
+              "ParameterName": "InNumMat",
+              "ParameterValue": "[5, 6, 7;8, 9, 10;]"
+            }
+          ],
+          "EstimatedDuration": null
+        }
+      ],
+      "Topology": {
+        "Name": "my topology",
+        "GlobalInputs": [],
+        "RequirementsInput": [],
+        "AdditionalInput": []
+      },
+      "DurationTimeBuffer": 0,
+      "EmailNotifications": null,
+      "Type": "TestShell"
+    }
+  ],
+  "ExistingReservationId": null
+}

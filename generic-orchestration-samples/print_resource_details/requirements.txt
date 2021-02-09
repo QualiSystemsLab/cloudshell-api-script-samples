@@ -1,0 +1,2 @@
+cloudshell-orch-core==1.7.5.6
+requests <2.0.0

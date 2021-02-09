@@ -1,0 +1,43 @@
+{
+  "SuiteTemplateName": "Demo Suite",
+  "SuiteName": "Quali API Suite",
+  "Description": "this is a suite ran through API",
+  "Type": "TestShell",
+  "Owner": "admin",
+  "EmailNotifications": "ErrorsOnly",
+  "RemoveJobsFromQueueAfter": -1,
+  "EndReservationOnEnd": true,
+  "JobsDetails": [
+    {
+      "Name": "First Job Sample",
+      "Description": "sample description",
+      "ExecutionServers": [],
+      "LoggingProfile": "All",
+      "EstimatedDuration": 2,
+      "StopOnFail": false,
+      "StopOnError": false,
+      "Tests": [
+        {
+          "TestPath": "TestShell\\Tests\\Shared\\Demo\\input_demo",
+          "State": null,
+          "StartTime": null,
+          "EndTime": null,
+          "Result": null,
+          "ReportId": null,
+          "Parameters": [
+            {
+              "ParameterName": "input_1",
+              "ParameterValue": "hello there I'm input 1"
+            }
+          ],
+          "EstimatedDuration": null
+        }
+      ],
+      "Topology": null,
+      "DurationTimeBuffer": 0,
+      "EmailNotifications": null,
+      "Type": "TestShell"
+    }
+  ],
+  "ExistingReservationId": null
+}
