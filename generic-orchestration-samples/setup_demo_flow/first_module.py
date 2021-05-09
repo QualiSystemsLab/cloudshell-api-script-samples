@@ -12,6 +12,9 @@ def first_module_flow(sandbox, components=None):
     :param components
     :return:
     """
+    if not components:
+        pass
+
     api = sandbox.automation_api
     res_id = sandbox.id
     warn_print(api, sandbox.id, "=== Hello from sandbox!!!! ===")

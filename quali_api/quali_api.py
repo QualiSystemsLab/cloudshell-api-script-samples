@@ -34,7 +34,8 @@ class QualiApiSession:
             exc_msg = "Quali API login failure. Status Code: {}. Error: {}".format(str(login_result.status_code),
                                                                                    login_result.content)
             raise Exception(exc_msg)
-        auth_token = login_result.content[1:-1]
+
+        auth_token = login_result.content.decode("utf-8")[1:-1]
         formatted_token = "Basic {}".format(auth_token)
         auth_header = {"Authorization": formatted_token}
         self.req_session.headers.update(auth_header)
@@ -285,24 +286,9 @@ class QualiApiSession:
 
 
 if __name__ == "__main__":
-    from io import StringIO
-    import paramiko
-    api = QualiApiSession(host="qs-il-lt-nattik", username="admin", password="admin")
-    SANDBOX_ID = "c935225f-eccb-4b0f-99c2-8c784be83193"
-    # TARGET_FILENAME = "hello.txt"
-    TARGET_FILENAME = "97a5d890-2675-47c4-ba01-10f1ad2d9a45.pem"
-    f = open(TARGET_FILENAME)
-    res = api.attach_file_to_reservation(sandbox_id=SANDBOX_ID,
-                                         filename=TARGET_FILENAME,
-                                         target_filename=TARGET_FILENAME,
-                                         overwrite_if_exists=True)
-    # res = api.write_text_to_reservation_file(sandbox_id=SANDBOX_ID,
-    #                                          target_filename="test2.txt",
-    #                                          text_input="take four",
-    #                                          overwrite_if_exists=True)
-    res = api.get_reservation_attachment_binary(SANDBOX_ID, TARGET_FILENAME)
-    file_obj = StringIO(u'{}'.format(res))
-    pkey = paramiko.RSAKey.from_private_key(file_obj)
-    # res = api.get_installed_standards()
-    # results = api.get_job_details(job_id="b8ac0f39-1d52-4437-b5e3-bcf8aecc65cf")
-    pass
+    api = QualiApiSession(host="localhost", username="admin", password="admin")
+    SANDBOX_ID = "a580d360-7f95-4cfb-b98c-711c33269a08"
+    api.attach_file_to_reservation(sandbox_id=SANDBOX_ID,
+                                   filename="my-attachment.txt",
+                                   target_filename="whatever.txt")
+

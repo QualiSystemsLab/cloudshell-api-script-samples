@@ -5,13 +5,13 @@ from copy import deepcopy
 # Create a new package in the local file system
 package_base_path = "C:\\quali_package_demo"
 # package_name = "demo_apps_blueprint.zip"
-package_name = "packaging api dev.zip"
+package_name = "empty_blueprint.zip"
 p = PackageEditor()
 
 package_path = "{}\\{}".format(package_base_path, package_name)
 
 # create empty package
-# p.create(package_path)
+p.create(package_path)
 
 # Load the package and prepare for edit
 p.load(package_path)
@@ -24,6 +24,8 @@ topology_name = p.get_topology_names()[0]
 # p.change_topology_name_and_alias(topology_name=names[0], new_name="new blueprint name")
 # names_new = p.get_topology_names()
 
+p.add_topology("my_bp", True, "", "30", "", "", "100")
+
 apps = p.get_apps(topology_name)
 app1 = apps[0]
 
@@ -31,17 +33,6 @@ new_app_copy = deepcopy(app1)
 new_app_copy.templateName = "my template from api"
 new_app_copy.appResource.name = "my temp app"
 
-# BUILD NEW APP
-# new_app = TopologyApp()
-# new_app.positionX = "0"
-# new_app.positionY = "0"
-# new_app.templateName = "my amazing app template"
-# new_app.appResource = AppResource()
-# new_app.appResource.deploymentPaths = []
-# new_app.appResource.logicalResource = AppResourceInner()
-# # x = p.convert_topology_app_to_json(new_app)
-# p.add_app(topology_name=names[0], topology_app=new_app)
-# apps = p.get_apps(names[0])
 
 p.add_app(topology_name, new_app_copy)
 pass
