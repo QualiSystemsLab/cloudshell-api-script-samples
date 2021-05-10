@@ -13,7 +13,6 @@ domain = "Global"
 
 api = CloudShellAPISession(host=server, username=user, password=password, domain=domain)
 
-api.GetReservationDetails("", True).ReservationDescription
 
 def is_resource_list_in_blueprint(api, blueprint_name, target_cloud_provider):
     """
