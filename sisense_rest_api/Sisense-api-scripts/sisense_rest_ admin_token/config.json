@@ -1,0 +1,8 @@
+{
+  "sisense_user": "<user>",
+  "sisense_password": "<pw>",
+  "sisense_server": "192.168.65.82",
+  "sisense_port": "8081",
+  "sisense_protocol": "http",
+  "elasticube_name": "QS_ElastiCube"
+}

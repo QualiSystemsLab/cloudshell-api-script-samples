@@ -1,0 +1,15 @@
+{
+  "type": "measure",
+  "formula": "count([2C63A-50C])",
+  "context": {
+    "[2C63A-50C]": {
+      "table": "ReservationDailyLog",
+      "column": "ReservationId",
+      "dim": "[ReservationDailyLog.ReservationId]",
+      "datatype": "text",
+      "merged": true,
+      "title": "ReservationId"
+    }
+  },
+  "title": "Total # of sandboxes"
+}

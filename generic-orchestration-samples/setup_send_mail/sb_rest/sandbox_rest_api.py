@@ -192,6 +192,12 @@ class SandboxRest(object):
         response = requests.post(url=url, data=json.dumps(body), headers=self._auth_headers)
         return self._handle_res_json(response)
 
+    def invalidate_token(self, token):
+        url = self._no_version_base_url + "/token/{}".format(token)
+        response = requests.delete(url=url, headers=self._auth_headers)
+        return self._handle_res_json(response)
+
+
 
 if __name__ == "__main__":
     server = "localhost"
@@ -200,7 +206,6 @@ if __name__ == "__main__":
     domain = "Global"
 
     sb_rest = SandboxRest(server, cs_user, password, domain)
-    sandbox_info = sb_rest.get_sandboxes()
-    info_json = json.dumps(sandbox_info, indent=2)
-    print(info_json)
+    delete_res = sb_rest.invalidate_token("PZc7BIDg40KnqY87p98MRQ2")
+    sandbox_info = sb_rest.get_user_token("admin")
     pass

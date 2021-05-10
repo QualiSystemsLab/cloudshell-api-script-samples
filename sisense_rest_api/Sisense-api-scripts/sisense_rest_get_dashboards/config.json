@@ -1,0 +1,6 @@
+{
+  "sisense_server": "192.168.65.82",
+  "sisense_port": "8081",
+  "sisense_protocol": "http",
+  "admin_token": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1c2VyIjoiNWUzMDUyZGUxZmYyOWI4ZjRmNzM4NDc4IiwiYXBpU2VjcmV0IjoiMDg0NmI2YmYtZmExNy01MTllLTVjOTUtY2VmZGNmOTQwMGIyIiwiaWF0IjoxNTgwMzk0Mjk0fQ.nixyjXoS-NsinNMbufHxMUfo-ytIIwiL5c7pYaA1bQ4"
+}
