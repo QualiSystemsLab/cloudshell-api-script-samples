@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<AppTemplateInfo xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <AppResourceInfo Name="photon template 10" ImagePath="photon template 10.png">
+    <AppResources>
+      <AppResource ModelName="Generic App Model" Driver="">
+        <Attributes>
+          <Attribute Name="Password" Value="3M3u7nkDzxWb0aJ/IZYeWw==" />
+          <Attribute Name="Public IP" Value="" />
+          <Attribute Name="User" Value="" />
+        </Attributes>
+      </AppResource>
+    </AppResources>
+    <DeploymentPaths>
+      <DeploymentPath Name="test" Default="false">
+        <DeploymentService Name="VMware vCenter Cloud Provider 2G.vCenter VM From Template 2G" CloudProvider="vcenter 110 - 2G">
+          <Attributes>
+            <Attribute Name="VMware vCenter Cloud Provider 2G.vCenter VM From Template 2G.vCenter Template" Value="Natti.k\Servers\photon template" />
+            <Attribute Name="VMware vCenter Cloud Provider 2G.vCenter VM From Template 2G.VM Cluster" Value="" />
+            <Attribute Name="VMware vCenter Cloud Provider 2G.vCenter VM From Template 2G.VM Storage" Value="" />
+            <Attribute Name="VMware vCenter Cloud Provider 2G.vCenter VM From Template 2G.Behavior during save" Value="Remain Powered On" />
+            <Attribute Name="VMware vCenter Cloud Provider 2G.vCenter VM From Template 2G.VM Resource Pool" Value="" />
+            <Attribute Name="VMware vCenter Cloud Provider 2G.vCenter VM From Template 2G.VM Location" Value="" />
+            <Attribute Name="VMware vCenter Cloud Provider 2G.vCenter VM From Template 2G.Auto Power On" Value="True" />
+            <Attribute Name="VMware vCenter Cloud Provider 2G.vCenter VM From Template 2G.Auto Power Off" Value="True" />
+            <Attribute Name="VMware vCenter Cloud Provider 2G.vCenter VM From Template 2G.Wait for IP" Value="True" />
+            <Attribute Name="VMware vCenter Cloud Provider 2G.vCenter VM From Template 2G.Auto Delete" Value="True" />
+            <Attribute Name="VMware vCenter Cloud Provider 2G.vCenter VM From Template 2G.Autoload" Value="True" />
+            <Attribute Name="VMware vCenter Cloud Provider 2G.vCenter VM From Template 2G.IP Regex" Value="" />
+            <Attribute Name="VMware vCenter Cloud Provider 2G.vCenter VM From Template 2G.Refresh IP Timeout" Value="600" />
+            <Attribute Name="VMware vCenter Cloud Provider 2G.vCenter VM From Template 2G.Customization Spec" Value="" />
+            <Attribute Name="VMware vCenter Cloud Provider 2G.vCenter VM From Template 2G.CPU" Value="" />
+            <Attribute Name="VMware vCenter Cloud Provider 2G.vCenter VM From Template 2G.RAM" Value="" />
+            <Attribute Name="VMware vCenter Cloud Provider 2G.vCenter VM From Template 2G.HDD" Value="" />
+          </Attributes>
+        </DeploymentService>
+      </DeploymentPath>
+    </DeploymentPaths>
+  </AppResourceInfo>
+  <Categories>
+    <Category>Applications</Category>
+  </Categories>
+</AppTemplateInfo>
