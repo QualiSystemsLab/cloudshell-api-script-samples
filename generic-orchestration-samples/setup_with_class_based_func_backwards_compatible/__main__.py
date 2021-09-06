@@ -13,7 +13,6 @@ DefaultSetupWorkflow().register(sandbox)
 
 # pass in both custom class based and function based commands
 sandbox.workflow.on_configuration_ended(bp_commands.command_one)
-sandbox.workflow.on_configuration_ended(bp_commands.command_two)
 sandbox.workflow.on_configuration_ended(command_with_sandbox_param)
 sandbox.workflow.on_configuration_ended(command_with_sandbox_and_components_params)
 

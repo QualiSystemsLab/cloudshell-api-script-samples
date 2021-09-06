@@ -3,18 +3,25 @@ import requests
 import json
 
 
-class QualiAPISession():
+class QualiAPISession:
     def __init__(self, host, username='', password='', domain='Global', timezone='UTC',
                  datetimeformat='MM/dd/yyyy HH:mm', token_id='', port=9000):
-        self._api_base_url = "http://{0}:{1}/Api".format(host, port)
+        self._api_base_url = "http://{}:{}/Api".format(host, port)
         if token_id:
-            login_result = requests.put(self._api_base_url + "/Auth/Login", {"token": token_id, "domain": domain})
+            headers = {"token": token_id, "domain": domain}
         elif username and password:
-            login_result = requests.put(self._api_base_url + "/Auth/Login",
-                                        {"username": username, "password": password, "domain": domain})
+            headers = {"username": username, "password": password, "domain": domain}
         else:
-            raise ValueError("Must supply either username and password or token_id")
-        self._auth_code = "Basic {0}".format(login_result.content[1:-1])
+            raise ValueError("Must supply Username / Password OR token_id")
+
+        login_result = requests.put(self._api_base_url + "/Auth/Login", headers)
+        if not login_result.ok:
+            raise Exception("Invalid status on login. Status - {}. {}".format(login_result.status_code,
+                                                                              login_result.text))
+
+        # strip the extraneous quotes
+        token_str = login_result.text[1:-1]
+        self._auth_code = "Basic {0}".format(token_str)
 
     def import_package(self, package_filepath):
         """
@@ -44,7 +51,6 @@ class QualiAPISession():
         Download an attached file from a Sandbox. The downloaded file will be saved at {save_path}\filename
         :param sandbox_id: ID of the reservation containing the file
         :param filename: File to get from the reservation
-        :param target_filename: target file name to save the file as
         """
         get_result = requests.post(self._api_base_url + "/Package/GetReservationAttachment",
                                    {"ReservationId": sandbox_id, "FileName": filename},
@@ -195,3 +201,9 @@ class QualiAPISession():
             return jobs
         else:
             return running_jobs_res.content
+
+
+if __name__ == "__main__":
+    api = QualiAPISession("localhost", "admin", "admin", "Global")
+    suites = api.get_available_suites()
+    pass

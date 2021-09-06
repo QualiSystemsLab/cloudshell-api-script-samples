@@ -1,4 +1,4 @@
-from _quali_api_wrapper import QualiAPISession
+from quali_api_wrapper import QualiAPISession
 import json
 
 # quali api credentials

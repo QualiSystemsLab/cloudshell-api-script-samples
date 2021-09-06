@@ -1,4 +1,4 @@
-from _quali_api_wrapper import QualiAPISession
+from quali_api_wrapper import QualiAPISession
 import json
 
 with open('job1_data.json') as handle:

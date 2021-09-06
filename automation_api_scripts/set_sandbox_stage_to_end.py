@@ -5,19 +5,15 @@ password = "admin"
 server = "localhost"
 domain = "Global"
 
-SANDBOX_ID = "b8e1aea9-4d65-43c9-ac0d-227842fe5773"
+SANDBOX_ID = "fbdd8ce6-d68f-424c-a520-234547a07f2c"
 
 api = CloudShellAPISession(host=server, username=user, password=password, domain=domain)
 
 sandbox_details = api.GetReservationDetails(reservationId=SANDBOX_ID, disableCache=True).ReservationDescription
 
-print("setting Live statuses on resources in sandbox '{}'....".format(sandbox_details.Name))
+print("setting sandbox stage to end in sandbox '{}'....".format(sandbox_details.Name))
 
-for resource in sandbox_details.Resources:
-    print("Setting resource '{}'...".format(resource.Name))
-    api.SetResourceLiveStatus(resourceFullName=resource.Name,
-                              liveStatusName="Online",
-                              additionalInfo="Resource is online")
+api.SetSetupStage(setupStage="Ended", reservationId=SANDBOX_ID)
 
 print("Done.")
 

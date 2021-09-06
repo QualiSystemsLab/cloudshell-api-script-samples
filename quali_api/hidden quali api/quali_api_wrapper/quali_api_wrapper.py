@@ -106,6 +106,7 @@ class QualiApi(object):
 if __name__ == "__main__":
     api = QualiApi("localhost", "admin", "admin")
     # tests = api.get_tests_from_shared("Demo")
-    local_path = r"C:\Users\natti.k\Documents\TestShell Files\Tests\Test 2.tstest"
+    local_path = r"C:\Users\natti.k\Documents\TestShell Files\Tests\Test 1.tstest"
     api.upload_test_to_shared(local_path, "")
+    # api.upload_test_to_shared(local_path, "dir1")
     pass

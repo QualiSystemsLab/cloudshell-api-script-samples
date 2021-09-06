@@ -1,4 +1,4 @@
-from _quali_api_wrapper import QualiAPISession
+from quali_api_wrapper import QualiAPISession
 import json
 
 with open('suite_data.json') as handle:

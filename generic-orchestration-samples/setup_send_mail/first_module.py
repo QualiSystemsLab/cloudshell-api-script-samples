@@ -35,7 +35,7 @@ def first_module_flow(sandbox, components=None):
     sb_rest = SandboxRest(server=sandbox.connectivityContextDetails.server_address,
                           username=sandbox.connectivityContextDetails.admin_user,
                           password=sandbox.connectivityContextDetails.admin_pass,
-                          domain=sandbox.reservationContextDetails.domain)
+                          domain=sandbox.reservationContextDetails.DOMAIN)
 
     token = sb_rest.get_user_token(sandbox.reservationContextDetails.owner_user)
 
