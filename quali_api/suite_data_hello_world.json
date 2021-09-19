@@ -9,7 +9,7 @@
   "EndReservationOnEnd": true,
   "JobsDetails": [
     {
-      "Name": "First Job Sample",
+      "Name": "first job form api",
       "Description": "sample description",
       "ExecutionServers": [],
       "LoggingProfile": "All",
@@ -18,18 +18,13 @@
       "StopOnError": false,
       "Tests": [
         {
-          "TestPath": "TestShell\\Tests\\Shared\\Demo\\input_demo",
+          "TestPath": "TestShell\\Tests\\Shared\\hello world",
           "State": null,
           "StartTime": null,
           "EndTime": null,
           "Result": null,
           "ReportId": null,
-          "Parameters": [
-            {
-              "ParameterName": "input_1",
-              "ParameterValue": "hello there I'm input 1"
-            }
-          ],
+          "Parameters": [],
           "EstimatedDuration": null
         }
       ],

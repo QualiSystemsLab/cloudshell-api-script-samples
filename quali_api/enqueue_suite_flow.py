@@ -9,6 +9,6 @@ api = QualiAPISession(host="localhost", username="admin", password="admin")
 suite_id = api.enqueue_suite(suite_data=suite_data_dict)
 suite_details = api.get_suite_details(suite_id)
 
-print "suite id: " + suite_id
-print "===== suite details ====="
-print suite_details
+print("suite id: " + suite_id)
+print("===== suite details =====")
+print(suite_details)

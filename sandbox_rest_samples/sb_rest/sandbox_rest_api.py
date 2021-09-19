@@ -38,8 +38,8 @@ class SandboxRest(object):
         if login_res.status_code in [200, 202]:
             login_token = login_res.text[1:-1]
         else:
-            print "login response code: " + str(login_res.status_code)
-            print "login response" + login_res.text
+            print("login response code: " + str(login_res.status_code))
+            print("login response" + login_res.text)
             raise Exception("Sandbox API authentication Failed")
 
         auth_headers = {
@@ -195,8 +195,11 @@ if __name__ == "__main__":
     password = "admin"
     domain = "Global"
 
+    SANDBOX_COUNT = 5
+
     sb_rest = SandboxRest(server, cs_user, password, domain)
-    sandbox_info = sb_rest.get_sandboxes()
-    info_json = json.dumps(sandbox_info, indent=2)
-    print(info_json)
-    pass
+    for i in range(SANDBOX_COUNT):
+        res = sb_rest.start_blueprint("rest api test", "test {}".format(i + 1))
+        info_json = json.dumps(res, indent=2)
+        print(info_json)
+        pass

@@ -1,5 +1,5 @@
 {
-  "SuiteTemplateName": "Demo Suite",
+  "SuiteTemplateName": "uat demo",
   "SuiteName": "Quali API Suite",
   "Description": "this is a suite ran through API",
   "Type": "TestShell",

@@ -175,7 +175,8 @@ class QualiAPISession:
         if 200 <= enqueue_suite_result.status_code < 300:
             return enqueue_suite_result.json()
         else:
-            return enqueue_suite_result.content
+            raise Exception("Failed api call. Response: {}, {}".format(enqueue_suite_result.status_code,
+                                                                       enqueue_suite_result.text))
 
     def get_suite_details(self, suite_id):
         get_details_result = requests.get(self._api_base_url + "/Scheduling/Suites/{}".format(suite_id),
