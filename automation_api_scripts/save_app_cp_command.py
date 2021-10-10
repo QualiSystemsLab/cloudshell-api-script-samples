@@ -10,8 +10,8 @@ password = "HVUUZ0e2FwAEyGoC5kKp"
 server = "54.200.66.175"
 domain = "Global"
 
-RESOURCE_NAME = "CentOS_ansible_test i-07997fdc8ccedb9a3"
-SANDBOX_ID = "63bba51e-7a67-4ff6-bd19-4268e477513a"
+RESOURCE_NAME = "CentOS_no_config_2G_Test i-095fe8bd6200b8854"
+SANDBOX_ID = "4814527a-139b-46a9-a9c5-b91d0ae33466"
 
 api = CloudShellAPISession(host=server, username=user, password=password, domain=domain)
 
