@@ -11,7 +11,7 @@ domain = "Global"
 
 api = CloudShellAPISession(host=server, username=user, password=password, domain=domain)
 sandboxes = api.GetCurrentReservations()
-x = "lol"
+x = "lol.txt"
 
 def is_resource_list_in_blueprint(api, blueprint_name, target_service_names):
     """

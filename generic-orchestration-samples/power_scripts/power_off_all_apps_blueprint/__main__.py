@@ -9,6 +9,7 @@ from first_module import first_module_flow
 SCRIPT_FLOW = "default"
 
 sandbox = Sandbox()
+sandbox.connectivityContextDetails.admin_user
 
 if SCRIPT_FLOW == "default":
     first_module_flow(sandbox=sandbox, components=None)

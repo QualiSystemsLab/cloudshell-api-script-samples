@@ -7,9 +7,13 @@ sandbox = Sandbox()
 
 
 def print_sandbox_data_keys(api: CloudShellAPISession, res_id: str):
-    data = api.GetSandboxData(res_id)
+    sandbox_data_key_values = api.GetSandboxData(res_id).SandboxDataKeyValues
+    if not sandbox_data_key_values:
+        api.WriteMessageToReservationOutput(res_id, "No Sandbox Data found")
+        return
+
     api.WriteMessageToReservationOutput(res_id, "=== All Sandbox Keys ===")
-    for data in data.SandboxDataKeyValues:
+    for data in sandbox_data_key_values:
 
         # pretty print the JSON if valid
         try:

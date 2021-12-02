@@ -185,7 +185,7 @@ def get_email_template(sb_name, res_id, current_time, training_portal_link, sb_o
 if __name__ == "__main__":
     x = get_email_template(sb_name="my sandbox",
                            res_id="xxxxxDDDDDaaaaa",
-                           current_time="lol o'clock",
+                           current_time="lol.txt o'clock",
                            training_portal_link="my link to portal",
                            sb_owner="natti",
                            start_time="now",

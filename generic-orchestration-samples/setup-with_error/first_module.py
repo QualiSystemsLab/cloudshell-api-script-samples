@@ -15,6 +15,6 @@ def first_module_flow(sandbox, components=None):
     api = sandbox.automation_api
     res_id = sandbox.id
     warn_print(api, sandbox.id, "=== Hello from sandbox! ===")
-    raise Exception("I'm an Error lol")
+    raise Exception("I'm an Error lol.txt")
 
 

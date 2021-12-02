@@ -21,6 +21,7 @@ p.load(package_path)
 #                instructions="", categories="", diagram_zoom="0")
 
 topology_name = p.get_topology_names()[0]
+
 # p.change_topology_name_and_alias(topology_name=names[0], new_name="new blueprint name")
 # names_new = p.get_topology_names()
 
