@@ -5,6 +5,7 @@ from cloudshell.api.cloudshell_api import CloudShellAPISession, ApiEditAppReques
 
 def edit_target_app_in_sandbox(app_name, new_app_name, api, sb_id, target_deployment_attrs):
     """
+    Function to replace specific deployment attributes on a specific app
     the target deployment attrs ignores namespacing and case sensitivity.
     This will work for the hdd and cpu attrs - [("hdd", "3"), ("cpu", "5")]
     :param str app_name:
@@ -14,7 +15,11 @@ def edit_target_app_in_sandbox(app_name, new_app_name, api, sb_id, target_deploy
     :param list target_deployment_attrs: example [("hdd", "3"), ("cpu", "5")]
     :return:
     """
-    target_deployment_attrs = target_deployment_attrs or []
+
+    # guard clause
+    if not target_deployment_attrs:
+        return
+
     # find target app to modify
     apps = api.GetReservationDetails(sb_id, disableCache=True).ReservationDescription.Apps
     if not apps:
@@ -45,7 +50,8 @@ def edit_target_app_in_sandbox(app_name, new_app_name, api, sb_id, target_deploy
     # build out app edit request
     new_deployment_attrs_list = [NameValuePair(x[0], x[1]) for x in new_deployment_attrs_map.items()]
     new_deployment = Deployment(new_deployment_attrs_list)
-    app_details = AppDetails(ModelName=target_app.LogicalResource.Model, Attributes=new_resource_attrs,
+    app_details = AppDetails(ModelName=target_app.LogicalResource.Model,
+                             Attributes=new_resource_attrs,
                              Driver=target_app.LogicalResource.Driver)
     new_default_deployment = DefaultDeployment(Name=default_deployment.Name, Deployment=new_deployment)
     app_edit_requests = [ApiEditAppRequest(Name=app_name,
@@ -58,7 +64,6 @@ def edit_target_app_in_sandbox(app_name, new_app_name, api, sb_id, target_deploy
 
 def edit_apps_in_sandbox(sandbox, components):
     """
-
     :param Sandbox sandbox:
     :param components:
     :return:

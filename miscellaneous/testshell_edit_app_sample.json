@@ -1,0 +1,32 @@
+[
+  {
+    "Name": "vcenter test",
+    "NewName": "new name test",
+    "Description": "my description",
+    "AppDetails": {
+      "Attributes": [
+        {
+          "Name": "User",
+          "Value": "Testshell Test User"
+        },
+        {
+          "Name": "Password",
+          "Value": "Test password"
+        }
+      ],
+      "Driver": null,
+      "ModelName": "Generic App Model"
+    },
+    "DefaultDeployment": {
+      "Name": "vcenter 110 - 2G - VMware vCenter Cloud Provider 2G.vCenter VM From Linked Clone 2G",
+      "Deployment": {
+        "Attributes": [
+          {
+            "Name": "VMware vCenter Cloud Provider 2G.vCenter VM From Linked Clone 2G.CPU",
+            "Value": "6"
+          }
+        ]
+      }
+    }
+  }
+]

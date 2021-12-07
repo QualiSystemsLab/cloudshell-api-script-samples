@@ -1,0 +1,19 @@
+{
+  "Installation": {
+    "Attributes": [
+      {
+        "Name": "Generic Input",
+        "Value": "blabla"
+      }
+    ],
+    "Script": {
+      "Name": "test script",
+      "Inputs": [
+        {
+          "Name": "myInput",
+          "Value": "5"
+        }
+      ]
+    }
+  }
+}
