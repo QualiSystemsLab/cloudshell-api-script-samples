@@ -15,7 +15,7 @@ package_path = "{}\\{}".format(package_base_path, package_name)
 
 # Load the package and prepare for edit
 p.load(package_path)
-
+TopologyApp()
 
 # Edit the package: f.e add new family
 # p.add_topology(topology_name="temp_blueprint", is_public="True", image_file_path="", default_duration="15",

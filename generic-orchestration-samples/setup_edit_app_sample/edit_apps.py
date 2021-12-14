@@ -40,7 +40,7 @@ def edit_target_app_in_sandbox(app_name, new_app_name, api, sb_id, target_deploy
     new_deployment_attrs_map = {}
     for curr_attr in default_deployment.DeploymentService.Attributes:
         for update_attr_name, update_attr_value in target_deployment_attrs:
-            if curr_attr.Name.lower().endswith(update_attr_name):
+            if curr_attr.Name.lower().endswith(update_attr_name.lower()):
                 new_deployment_attrs_map[curr_attr.Name] = update_attr_value
                 break
 
