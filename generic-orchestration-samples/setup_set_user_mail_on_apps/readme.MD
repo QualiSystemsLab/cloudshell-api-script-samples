@@ -11,4 +11,4 @@ App param should be the following:
 
 Upload script as setup, python 2 or 3 both fine, and replace setup on target blueprint.
 
-Note in main.py how default config is disabled and this is replacing it
+Note in main.py how default config is disabled and this is replacing it.
