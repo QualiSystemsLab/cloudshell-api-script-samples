@@ -1,3 +1,5 @@
+import json
+
 from cloudshell.workflow.orchestration.sandbox import Sandbox
 from cloudshell.api.cloudshell_api import AppConfiguration, ConfigParam
 
@@ -14,6 +16,7 @@ def configure_sandbox_owner_mail_on_app(sandbox, components=None):
     """
     api = sandbox.automation_api
     sb_id = sandbox.id
+    logger = sandbox.logger
     sandbox_owner = sandbox.reservation_description.Owner
     owner_mail = api.GetUserDetails(sandbox_owner).Email
     if not owner_mail:
@@ -30,13 +33,23 @@ def configure_sandbox_owner_mail_on_app(sandbox, components=None):
             attr_value = attr_search[0].Value
             if attr_value.lower() == "true":
                 target_resources.append(curr_resource)
-    if not target_resources:
-        api.WriteMessageToReservationOutput(sb_id, "No target resources found to set mail on")
-        return
 
+    if not target_resources:
+        warn_msg = "No target resources found to set mail on"
+        api.WriteMessageToReservationOutput(sb_id, warn_msg)
+        logger.warn(warn_msg)
+
+    updated_app_names = [x.Name for x in target_resources]
+    all_other_apps = [x for x in all_resources if x.Name not in updated_app_names and x.CreatedInReservation]
     app_configurations = []
     for resource in target_resources:
         app_configurations.append(AppConfiguration(AppName=resource.Name,
                                                    ConfigParams=[ConfigParam(APP_CONFIG_PARAM, owner_mail)]))
-    api.WriteMessageToReservationOutput(sb_id, "Configuring Apps with forwarded sandbox owner email: {}".format(sandbox_owner))
+    for resource in all_other_apps:
+        app_configurations.append(AppConfiguration(AppName=resource.Name, ConfigParams=[]))
+
+    config_msg = "Configuring following apps with sandbox owner email: {}\n{}".format(sandbox_owner,
+                                                                                      json.dumps(updated_app_names, indent=4))
+    logger.info(config_msg)
+    api.WriteMessageToReservationOutput(sb_id, config_msg)
     api.ConfigureApps(reservationId=sb_id, appConfigurations=app_configurations, printOutput=True)
