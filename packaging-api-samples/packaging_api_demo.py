@@ -14,6 +14,7 @@ package_path = "{}\\{}".format(package_base_path, package_name)
 # p.create(package_path)
 
 # Load the package and prepare for edit
+p.top
 p.load(package_path)
 TopologyApp()
 

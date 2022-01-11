@@ -1,5 +1,5 @@
 {
-  "SuiteTemplateName": "uat demo",
+  "SuiteTemplateName": "test suite",
   "SuiteName": "Quali API Suite",
   "Description": "this is a suite ran through API",
   "Type": "TestShell",
@@ -18,7 +18,7 @@
       "StopOnError": false,
       "Tests": [
         {
-          "TestPath": "TestShell\\Tests\\Shared\\Demo\\input_demo",
+          "TestPath": "TestShell\\Tests\\Shared\\hello world",
           "State": null,
           "StartTime": null,
           "EndTime": null,

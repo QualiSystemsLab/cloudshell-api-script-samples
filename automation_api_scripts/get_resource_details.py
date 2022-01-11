@@ -1,17 +1,8 @@
 from cloudshell.api.cloudshell_api import CloudShellAPISession
 
-# add credentials
-user = "admin"
-password = "admin"
-server = "localhost"
-domain = "Global"
-
 # start session
-api = CloudShellAPISession(host=server, username=user, password=password, domain=domain)
+api = CloudShellAPISession(host="localhost", username="admin", password="admin", domain="Global")
 
-
-app = 'mock_1'
-# find resources of target model
-res_details = api.GetResourceDetails(resourceFullPath=app)
-x = api.GetResourceAvailability([app])
-pass
+# find resources in DB - specify models / family / attributes etc
+all_resources = api.FindResources(resourceModel="Putshell").Resources
+print(f"resource count found: {len(all_resources)}")
