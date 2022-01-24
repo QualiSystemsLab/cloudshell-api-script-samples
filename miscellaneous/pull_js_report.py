@@ -1,6 +1,6 @@
 import requests
 
-PORTAL_SERVER = "qs-il-lt-nattik"
+PORTAL_SERVER = "localhost"
 EXECUTION_ID = "96303587-8a06-45d2-a9db-728368aa4cb7"
 
 REPORT_LINK = F"http://{PORTAL_SERVER}/Test/Report?reportId={EXECUTION_ID}"
