@@ -1,9 +1,6 @@
 from cloudshell.workflow.orchestration.sandbox import Sandbox
-import time
 from functools import partial
 from multiprocessing.dummy import Pool as ThreadPool
-# from multiprocessing import Pool
-from cloudshell.api.cloudshell_api import ResourceAttribute
 from cloudshell.api.cloudshell_api import TopologyReservedResourceInfo
 
 
