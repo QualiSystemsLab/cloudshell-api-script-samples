@@ -1,2 +1,0 @@
-cloudshell-orch-core>=2.1.0.0,<2.2.0.0
-cloudshell-cli>=3.3.0,<3.4.0
