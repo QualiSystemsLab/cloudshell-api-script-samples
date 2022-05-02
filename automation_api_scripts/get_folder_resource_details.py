@@ -17,6 +17,9 @@ start = default_timer()
 # start session
 api = CloudShellAPISession(host=server, username=user, password=password, domain=domain)
 # resources = api.GetFolderContent(fullPath="mocks/DUT", showAllDomains=True)
+
+print(f"looking for resource availablity in target folder: {TARGET_FOLDER}")
+print("=================")
 contents = api.GetFolderContent(fullPath=TARGET_FOLDER).ContentArray
 
 
