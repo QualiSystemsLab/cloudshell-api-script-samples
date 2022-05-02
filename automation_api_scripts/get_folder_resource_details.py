@@ -2,7 +2,7 @@
 iterate over a target folder and print out reserved resources
 """
 from cloudshell.api.cloudshell_api import CloudShellAPISession
-import json
+from timeit import default_timer
 
 # add credentials for session
 user = "admin"
@@ -11,6 +11,9 @@ server = "localhost"
 domain = "Global"
 
 TARGET_FOLDER = "mocks/DUT"
+
+start = default_timer()
+
 # start session
 api = CloudShellAPISession(host=server, username=user, password=password, domain=domain)
 # resources = api.GetFolderContent(fullPath="mocks/DUT", showAllDomains=True)
@@ -26,3 +29,5 @@ for content in contents:
         for resource in availability_resources:
             print(f"Resource: {resource.FullName}, Status: {resource.ReservedStatus}")
         print("===========")
+
+print(f"Script done after {default_timer() - start} seconds")
