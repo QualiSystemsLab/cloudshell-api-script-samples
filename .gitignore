@@ -5,3 +5,5 @@ quali_api_sanity_exe/
 Orchestration-Templates/
 Bug-exploration/
 *.pyc
+credentials.py
+cli_credentials.py
