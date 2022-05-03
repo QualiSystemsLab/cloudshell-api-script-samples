@@ -18,6 +18,8 @@ def send_command(sandbox, components=None):
     res_id = sandbox.id
     res_details = api.GetReservationDetails(res_id).ReservationDescription
     resources = res_details.Resources
+    logger = sandbox.logger
+    logger.info("send command flow starting...")
     linux_resources = [resource for resource in resources
                        if resource.ResourceModelName == LINUX_MODEL]
     if not linux_resources:
