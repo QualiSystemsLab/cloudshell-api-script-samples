@@ -3,6 +3,10 @@ from cloudshell.workflow.orchestration.sandbox import Sandbox
 DUT_MODEL = "Putshell"
 
 
+class HealtCheckException(Exception):
+    pass
+
+
 # ========== Primary Function ==========
 def run_dut_health_check(sandbox, components=None):
     """
@@ -18,12 +22,17 @@ def run_dut_health_check(sandbox, components=None):
     dut_resources = [resource for resource in resources
                      if resource.ResourceModelName == DUT_MODEL]
     if not dut_resources:
-        raise Exception("No Juniper")
+        raise Exception("No DUT resource found")
 
     dut1 = dut_resources[0]
 
-    api.ExecuteCommand(reservationId=res_id,
-                       targetName=dut1.Name,
-                       targetType="Resource",
-                       commandName="health_check",
-                       printOutput=True)
+    try:
+        api.ExecuteCommand(reservationId=res_id,
+                           targetName=dut1.Name,
+                           targetType="Resource",
+                           commandName="health_check",
+                           printOutput=True)
+    except Exception as e:
+        err_msg = f"Issue caught during health check. {str(e)}"
+        api.WriteMessageToReservationOutput(err_msg)
+        raise HealtCheckException(err_msg)
