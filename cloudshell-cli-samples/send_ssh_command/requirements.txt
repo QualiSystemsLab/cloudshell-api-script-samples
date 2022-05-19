@@ -1,0 +1,3 @@
+cloudshell-cli
+cloudshell-automation-api
+six
