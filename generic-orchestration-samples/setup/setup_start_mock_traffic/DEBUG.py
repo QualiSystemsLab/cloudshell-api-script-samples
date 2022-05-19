@@ -4,7 +4,7 @@ import credentials
 from dut_health_check import run_dut_health_check
 from start_traffic import start_traffic_flow
 
-LIVE_SANDBOX_ID = "4f1c7f14-5e28-4a54-a611-5883ea84b39b"
+LIVE_SANDBOX_ID = "361caea5-bf4e-419d-aadb-195f2ff33dce"
 
 attach_to_cloudshell_as(user=credentials.USER,
                         password=credentials.PASSWORD,

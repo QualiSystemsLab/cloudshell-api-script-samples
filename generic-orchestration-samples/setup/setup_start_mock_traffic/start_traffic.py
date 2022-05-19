@@ -31,5 +31,5 @@ def start_traffic_flow(sandbox, components=None):
                        commandName="start_traffic",
                        printOutput=True)
 
-    api.WriteMessageToReservationOutput(reservationId=res_id, message="load config flow finished")
+    api.WriteMessageToReservationOutput(reservationId=res_id, message="send traffic flow finished")
 
