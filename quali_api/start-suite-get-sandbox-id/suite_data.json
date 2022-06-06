@@ -1,6 +1,6 @@
 {
   "SuiteTemplateName": "test suite",
-  "SuiteName": "TP3 BGW210SamePerformance Test Test",
+  "SuiteName": "my suite",
   "Description": "this is a suite ran through API",
   "Type": "TestShell",
   "Owner": "admin",
@@ -9,8 +9,8 @@
   "EndReservationOnEnd": true,
   "JobsDetails": [
     {
-      "Name": "First Job Sample",
-      "Description": "sample description",
+      "Name": "my first job",
+      "Description": "here is a sample description",
       "ExecutionServers": [],
       "LoggingProfile": "All",
       "EstimatedDuration": 2,
@@ -24,19 +24,17 @@
           "EndTime": null,
           "Result": null,
           "ReportId": null,
-          "Parameters": [
-
-          ],
+          "Parameters": [],
           "EstimatedDuration": null
         }
       ],
       "Topology": {
-            "Name":"empty",
-            "GlobalInputs":[],
+            "Name":"my_blueprint",
+            "GlobalInputs":[{"Name": "my_uuid", "Value": "abcdefg"}],
             "RequirementsInput":[],
             "AdditionalInput":[]
           },
-      "DurationTimeBuffer": 0,
+      "DurationTimeBuffer": 5,
       "EmailNotifications": null,
       "Type": "TestShell"
     }
