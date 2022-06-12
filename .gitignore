@@ -7,3 +7,4 @@ Bug-exploration/
 *.pyc
 credentials.py
 cli_credentials.py
+__pycache__/
