@@ -1,0 +1,4 @@
+cloudshell-automation-api
+cloudshell-logging
+cloudshell-sandbox-reporter
+icmplib
