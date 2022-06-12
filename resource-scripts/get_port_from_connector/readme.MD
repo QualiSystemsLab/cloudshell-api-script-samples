@@ -1,5 +1,5 @@
 # Get Port from Connector
-This is a resource script that will find port of specified connector
+This is a resource script that will find port of specified connector alias
 
 ## Usage
 - attach script to resource model
