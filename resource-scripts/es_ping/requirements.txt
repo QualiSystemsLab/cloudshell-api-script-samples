@@ -1,0 +1,4 @@
+cloudshell-automation-api
+cloudshell-logging
+pingparsing
+cloudshell-sandbox-reporter
