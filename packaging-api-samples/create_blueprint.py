@@ -30,6 +30,7 @@ p.add_topology("my_bp", True, "", "30", "", "", "100")
 apps = p.get_apps(topology_name)
 app1 = apps[0]
 
+p.glob
 new_app_copy = deepcopy(app1)
 new_app_copy.templateName = "my template from api"
 new_app_copy.appResource.name = "my temp app"
