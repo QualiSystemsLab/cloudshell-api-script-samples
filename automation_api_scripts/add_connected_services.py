@@ -15,7 +15,10 @@ class AddServiceRequest:
 
 def add_connected_services(api: CloudShellAPISession, sb_id: str, source_resource_name: str,
                            requested_services_data: List[AddServiceRequest], connected_count: int = 0):
-    """ connected count is to statefully calculate the index for appending services to the matrix """
+    """
+    connected count is to statefully calculate the matrix index for appending new services
+    if you pass 0, it will add from start of matrix
+    """
     col_height = 5
     x_offset = 350
     y_offset = 130
@@ -90,7 +93,6 @@ if __name__ == "__main__":
     api = CloudShellAPISession(host="localhost", username="admin", password="admin", domain="Global")
 
     connected_services = get_connected_services(api, SANDBOX_ID, TARGET_RESOURCE, SERVICE_MODEL)
-
     service_requests = [AddServiceRequest(SERVICE_MODEL) for x in range(SERVICE_COUNT)]
     add_connected_services(api, SANDBOX_ID, TARGET_RESOURCE, service_requests, connected_count=len(connected_services))
     time.sleep(5)
