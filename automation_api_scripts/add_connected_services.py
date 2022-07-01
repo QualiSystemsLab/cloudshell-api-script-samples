@@ -86,7 +86,7 @@ def delete_services(api: CloudShellAPISession, sb_id: str, service_model: str):
 
 
 if __name__ == "__main__":
-    SANDBOX_ID = "4f45596e-3c9d-4c11-b9b0-faffb85f67fc"
+    SANDBOX_ID = "26714fd7-e933-4b09-b77f-cd02da98e855"
     TARGET_RESOURCE = "test-linux-host"
     SERVICE_MODEL = "Ginger Agent"
     SERVICE_COUNT = 7

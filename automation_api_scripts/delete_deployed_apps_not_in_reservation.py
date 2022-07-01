@@ -7,18 +7,14 @@ Script must have direct connectivity to:
 """
 from cloudshell.api.cloudshell_api import CloudShellAPISession
 import time
-import os
 
-user = "admin"
-password = "admin"
-server = "localhost"
+CS_USER = "admin"
+CS_PASSWORD = "admin"
+CS_SERVER = "localhost"
+TARGET_APP_FAMILY = "Generic App Family"
 
-def ping_vcenter_server(server_ip):
-    pass
-
-api = CloudShellAPISession(host=server, username=user, password=password, domain="Global")
-cloud_provider_details = api.GetResourceDetails(resourceFullPath="my vCenter")
-all_app_resources = api.FindResources(resourceFamily="Generic App Family").Resources
+api = CloudShellAPISession(host=CS_SERVER, username=CS_USER, password=CS_PASSWORD, domain="Global")
+all_app_resources = api.FindResources(resourceFamily=TARGET_APP_FAMILY).Resources
 deployed_app_folder_resources = [resource for resource in all_app_resources
                                  if "Deployed Apps" in resource.FullPath]
 if not deployed_app_folder_resources:
@@ -38,7 +34,7 @@ for resource in un_reserved_deployed_apps:
     try:
         print("Deleting deployed app resource: '{}'...".format(resource.Name))
         response = api.DeleteResource(resourceFullPath=resource.Name)
-        pass
+        response = str(response)
     except Exception as e:
         print("FAILED deletion '{}': Exception: {}".format(resource.Name, str(e)))
         print("=============")
@@ -63,4 +59,3 @@ if failed_deletions:
 
 print("ALL Un-reserved deployed apps deleted SUCCESSFULLY: {}".format(successful_deletions))
 print("=============")
-
