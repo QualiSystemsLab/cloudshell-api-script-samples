@@ -1,4 +1,4 @@
-from cloudshell.api.cloudshell_api import InputNameValue, CloudShellAPISession, AppConfiguration, ConfigParam
+from cloudshell.api.cloudshell_api import CloudShellAPISession, AppConfiguration, ConfigParam
 
 session = CloudShellAPISession("localhost", "admin", "admin", "Global")
 res_id = "260b3f80-14bd-4cc2-975c-6ab21a12ac28"
