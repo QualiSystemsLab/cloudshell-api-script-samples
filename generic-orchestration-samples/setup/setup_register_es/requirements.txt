@@ -1,2 +1,0 @@
-cloudshell-orch-core
-cloudshell-sandbox-reporter
