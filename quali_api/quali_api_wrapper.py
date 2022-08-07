@@ -207,4 +207,5 @@ class QualiAPISession:
 if __name__ == "__main__":
     api = QualiAPISession("localhost", "admin", "admin", "Global")
     suites = api.get_available_suites()
+    print(suites)
     pass
