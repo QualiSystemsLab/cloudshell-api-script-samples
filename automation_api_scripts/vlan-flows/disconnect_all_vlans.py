@@ -1,3 +1,6 @@
+"""
+Disconnects ALL active routes in ALL sandboxes - use with caution
+"""
 from cloudshell.api.cloudshell_api import CloudShellAPISession, Connector
 
 
