@@ -19,7 +19,8 @@ def disconnect_all(api: CloudShellAPISession):
         for route in l2_routes:
             try:
                 api.DisconnectRoutesInReservation(reservationId=sb.Id, endpoints=[route.Source, route.Target])
-            except Exception as e:
+            except Exception:
+                # already disconnected routes will throw exception, just skip those
                 pass
             else:
                 print(f"Disconnected {route.Source} -> {route.Target} in sandbox {sb.Id}")
