@@ -1,6 +1,6 @@
 {
   "SuiteTemplateName": "test suite",
-  "SuiteName": "my suite",
+  "SuiteName": "Suite from api demo",
   "Description": "this is a suite ran through API",
   "Type": "TestShell",
   "Owner": "admin",
@@ -30,7 +30,7 @@
       ],
       "Topology": {
             "Name":"my_blueprint",
-            "GlobalInputs":[{"Name": "my_uuid", "Value": "abcdefg"}],
+            "GlobalInputs":[{"Name": "Blueprint Input 1", "Value": "hello from api"}],
             "RequirementsInput":[],
             "AdditionalInput":[]
           },
