@@ -1,6 +1,6 @@
 {
-  "SuiteTemplateName": "test suite",
-  "SuiteName": "Suite from api demo",
+  "SuiteTemplateName": "natti suite",
+  "SuiteName": "cgs trial run",
   "Description": "this is a suite ran through API",
   "Type": "TestShell",
   "Owner": "admin",
@@ -9,7 +9,7 @@
   "EndReservationOnEnd": true,
   "JobsDetails": [
     {
-      "Name": "my first job",
+      "Name": "cgs api job",
       "Description": "here is a sample description",
       "ExecutionServers": [],
       "LoggingProfile": "All",

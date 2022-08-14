@@ -132,6 +132,13 @@ class QualiAPISession:
         else:
             return get_details_result.content
 
+    def get_suite_template_details(self, suite_name):
+        response = requests.get(self._api_base_url + "/Scheduling/SuiteTemplates/{}".format(suite_name),
+                                          headers={"Authorization": self._auth_code})
+        if not response.ok:
+            raise Exception(f"Failed to get details for {suite_name}. status: {response.status_code}. Message: {response.text}")
+        return response.json()
+
     def get_available_suites(self):
         get_details_result = requests.get(self._api_base_url + "/Scheduling/SuiteTemplates",
                                           headers={"Authorization": self._auth_code})
