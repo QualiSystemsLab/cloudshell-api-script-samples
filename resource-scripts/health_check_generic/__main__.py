@@ -1,0 +1,2 @@
+from health_check import run_health_check
+run_health_check()
