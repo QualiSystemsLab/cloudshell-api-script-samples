@@ -1,4 +1,4 @@
-from quali_utils.quali_packaging import PackageEditor
+from quali_utils.quali_packaging import PackageEditor, TopologyApp
 import sys
 
 
@@ -22,6 +22,7 @@ def _flat_heirarchy(self, *args):
 PACKAGE_PATH = r"C:\Users\natti.k\code\quali\cloudshell-api-script-samples\packaging-api-samples\quote bug test.zip"
 
 p = PackageEditor()
+TopologyApp()
 p.process._flat_heirarchy = _flat_heirarchy
 p.load(PACKAGE_PATH)
 x = p.change_topology_name_and_alias("quote bug test", "lolll")
