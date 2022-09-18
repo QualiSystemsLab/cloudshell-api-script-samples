@@ -1,0 +1,14 @@
+[
+  {
+    "es_name": "<SERVER1>",
+    "address": "<PASSWORD>",
+    "user": "<USER>",
+    "password": "<PASSWORD>"
+  },
+    {
+    "es_name": "<SERVER2>",
+    "address": "<PASSWORD>",
+    "user": "<USER>",
+    "password": "<PASSWORD>"
+  }
+]
