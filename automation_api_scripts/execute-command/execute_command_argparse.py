@@ -1,9 +1,12 @@
 """
 Usage:
-python execute_command_arparse.py <SANDBOX_ID> <TEST_ID> <TEST_DATA>
+python execute_command_arparse.py <CS_SERVER> <CS_USER> <CS_PASSWORD> <SANDBOX_ID> <TEST_ID> <TEST_DATA>
 
 Jenkins command step example:
-python execute_command_arparse.py %SANDBOX_ID% "Jenkins Test Name" "Custom Data String"
+python execute_command_arparse.py %CS_SERVER% %CS_USER% %CS_PASSWORD% %SANDBOX_ID% "Jenkins Test Name" "Custom Data String"
+
+To set Jenkins env variables for cloudshell credentials:
+https://stackoverflow.com/a/54807811
 """
 import argparse
 from cloudshell.api.cloudshell_api import CloudShellAPISession, InputNameValue
@@ -29,11 +32,14 @@ def set_test_data(cs_api: CloudShellAPISession, sb_id: str, test_id: str, test_d
 
 
 if __name__ == "__main__":
-    api = CloudShellAPISession(host="localhost", username="admin", password="admin", domain="Global")
     parser = argparse.ArgumentParser()
+    parser.add_argument("server")
+    parser.add_argument("user")
+    parser.add_argument("password")
     parser.add_argument("sandbox_id")
     parser.add_argument("test_id")
     parser.add_argument("test_data")
     args = parser.parse_args()
 
+    api = CloudShellAPISession(host=args.server, username=args.user, password=args.password, domain="Global")
     set_test_data(api, args.sandbox_id, args.test_id, args.test_data)
