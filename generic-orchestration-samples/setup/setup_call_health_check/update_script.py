@@ -86,7 +86,7 @@ def zip_files():
     zip_details = get_zip_details()
     zip_file_name = zip_details["zip_file_name"]
     dirs_to_exclude = [".git"]
-    files_to_exclude = [zip_file_name, "venv", ".idea", "update_script.py", "DEBUG.py"]
+    files_to_exclude = [zip_file_name, "venv", ".idea", "update_script.py", "debug.py"]
     try:
         make_zipfile(output_filename=zip_file_name,
                      source_dir=zip_details["parent_dir_path"],
