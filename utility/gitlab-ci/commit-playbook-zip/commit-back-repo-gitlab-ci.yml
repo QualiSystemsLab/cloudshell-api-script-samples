@@ -1,0 +1,23 @@
+stages:
+  - dist
+
+dist:
+  stage: dist
+  only:
+    changes:
+      - my_playbook
+  image: "alpine:latest"
+  before_script:
+    - apk add --update zip git openssh openssh-client -f
+    - git config --global user.email "${GITLAB_USER_EMAIL}"
+    - git config --global user.name "${GITLAB_USER_NAME}"
+  script:
+    - zip -r my_playbook.zip my_playbook/*
+    - git remote set-url --push origin http://oauth2:$ACCESS_TOKEN@192.168.85.49:8085/$CI_PROJECT_PATH.git
+    - git remote show origin
+    - git status
+    - git add my_playbook.zip
+    - git commit -m "commit dist package from pipeline"
+    - git status
+    - git push origin HEAD:$CI_COMMIT_REF_NAME -o ci.skip
+    - echo "done"

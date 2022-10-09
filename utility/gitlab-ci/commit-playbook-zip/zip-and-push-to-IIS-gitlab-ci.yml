@@ -1,0 +1,15 @@
+stages:
+  - dist
+
+dist:
+  stage: dist
+  only:
+    changes:
+      - my_playbook
+  image: "alpine:latest"
+  before_script:
+    - apk add --update zip openssh openssh-client -f
+  script:
+    - zip -r my_playbook.zip my_playbook/*
+    - scp my_playbook.zip username@IP_of_windows_machine:/C:/Config_Scripts
+    - echo "done"
