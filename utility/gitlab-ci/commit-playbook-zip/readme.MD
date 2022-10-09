@@ -8,7 +8,7 @@ Some options to handle this pain point:
     - this will create an additional commit to history
     - this also adds binary file into repo
     - need to remember to pull down the new "zip" commit before pushing new changes
-3. Have similar CI job detect change and generate zip, but push to external web server hosting instead of commiting binary
+3. Have similar [CI job](zip-and-push-to-IIS-gitlab-ci.yml) detect change and generate zip, but push to external web server hosting instead of commiting binary
    - this adds dependency of setting up another web server (can also use cloudshell IIS server)
    - Can pass in branch name to name of zip to have different hosted zips for testing
    - Firewall rules can be placed on IIS to only allow downloads from the Execution Server
