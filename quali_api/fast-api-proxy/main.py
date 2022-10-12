@@ -46,7 +46,7 @@ async def login(form_data: OAuth2PasswordRequestForm = Depends()):
 
 
 @app.get("/suites")
-async def read_users_me(token: str = Depends(oauth2_scheme)):
+async def get_suites(token: str = Depends(oauth2_scheme)):
     return quali_api.get_available_suites(token)
 
 
