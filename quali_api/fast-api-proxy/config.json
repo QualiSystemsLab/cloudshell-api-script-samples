@@ -1,0 +1,5 @@
+{
+  "CS_SERVER": "localhost",
+  "CS_DOMAIN": "Global",
+  "QUALI_API_PORT": 9000
+}
