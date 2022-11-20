@@ -1,6 +1,6 @@
 from cloudshell.helpers.scripts.cloudshell_scripts_helpers import get_reservation_context_details, get_api_session, \
     get_resource_context_details
-from cli import SSHHandler
+from cli import SSHClientHandler
 import os
 
 COMMAND_PARAM = "command"
@@ -30,7 +30,7 @@ if not decrypted_password:
 api.WriteMessageToReservationOutput(reservationId=sb_id,
                                     message=f"Sending command to '{name}' at IP: {ip}")
 
-cli = SSHHandler(ip, user, decrypted_password)
+cli = SSHClientHandler(ip, user, decrypted_password)
 output = cli.send_command(cli_command)
 
 # printing to std_out will be the return value of resource scripts
