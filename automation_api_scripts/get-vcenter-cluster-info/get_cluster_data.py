@@ -2,6 +2,8 @@
 vcenter shell command reference
 https://github.com/QualiSystems/VMware-vCenter-Cloud-Provider-Shell-2G/blob/166724df98e0d6c67b16c047f8fb58de431ea4b3/src/drivermetadata.xml#L46
 """
+import json
+
 from cloudshell.api.cloudshell_api import CloudShellAPISession, InputNameValue
 import config
 
@@ -21,4 +23,5 @@ cluster_details = api.ExecuteCommand(reservationId=config.SANDBOX_ID,
                                      commandName="get_cluster_usage",
                                      commandInputs=command_inputs,
                                      printOutput=True).Output
-print(cluster_details)
+data = json.loads(cluster_details)
+print(json.dumps(data, indent=4))
