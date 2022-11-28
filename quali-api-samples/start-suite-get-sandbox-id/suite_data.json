@@ -1,0 +1,43 @@
+{
+  "SuiteTemplateName": "natti suite",
+  "SuiteName": "cgs trial run",
+  "Description": "this is a suite ran through API",
+  "Type": "TestShell",
+  "Owner": "admin",
+  "EmailNotifications": "ErrorsOnly",
+  "RemoveJobsFromQueueAfter": -1,
+  "EndReservationOnEnd": true,
+  "JobsDetails": [
+    {
+      "Name": "cgs api job",
+      "Description": "here is a sample description",
+      "ExecutionServers": [],
+      "LoggingProfile": "All",
+      "EstimatedDuration": 2,
+      "StopOnFail": false,
+      "StopOnError": false,
+      "Tests": [
+        {
+          "TestPath": "TestShell\\Tests\\Shared\\hello_world",
+          "State": null,
+          "StartTime": null,
+          "EndTime": null,
+          "Result": null,
+          "ReportId": null,
+          "Parameters": [],
+          "EstimatedDuration": null
+        }
+      ],
+      "Topology": {
+            "Name":"my_blueprint",
+            "GlobalInputs":[{"Name": "Blueprint Input 1", "Value": "hello from api"}],
+            "RequirementsInput":[],
+            "AdditionalInput":[]
+          },
+      "DurationTimeBuffer": 5,
+      "EmailNotifications": null,
+      "Type": "TestShell"
+    }
+  ],
+  "ExistingReservationId": null
+}

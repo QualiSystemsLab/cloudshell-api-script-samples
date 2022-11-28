@@ -1,0 +1,4 @@
+cloudshell-automation-api
+quali-utils # from cloudshell download center
+requests
+cloudshell-scriptfoundry
