@@ -1,7 +1,6 @@
 import os
 import shutil
 import zipfile
-
 from quali_utils.quali_packaging import PackageEditor
 import constants
 
@@ -20,7 +19,7 @@ def _clean_bp_package(base_path: str):
         shutil.rmtree(full_path)
 
 
-def clean_bp_archive(package_path: str):
+def _clean_bp_archive(package_path: str):
     """
     1. unzip the package
     2. clean out package for everything except Topology xml
@@ -44,6 +43,7 @@ def clean_bp_archive(package_path: str):
 
 
 def edit_vlan_id_in_package(package_path: str, target_service: str, new_vlan_id: str):
+    _clean_bp_archive(package_path)
     p = PackageEditor()
     p.load(package_path)
     bp_names = p.get_topology_names()
@@ -55,11 +55,9 @@ def edit_vlan_id_in_package(package_path: str, target_service: str, new_vlan_id:
                                attribute_name=constants.VLAN_ID_ATTR,
                                attribute_value=new_vlan_id,
                                publish=False)
-    pass
 
 
 if __name__ == "__main__":
     TARGET_PACKAGE = "vlan dev.zip"
     TARGET_SERVICE = "VLAN Manual"
-    clean_bp_archive(TARGET_PACKAGE)
     edit_vlan_id_in_package(TARGET_PACKAGE, TARGET_SERVICE, "42")

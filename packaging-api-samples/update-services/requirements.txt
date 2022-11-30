@@ -1,4 +1,7 @@
 cloudshell-automation-api
-quali-utils # from cloudshell download center
 requests
 cloudshell-scriptfoundry
+
+
+# Quali Utils not on pypi - get from cloudshell download center and pip install manually
+# quali-utils
