@@ -1,3 +1,9 @@
+"""
+Caution, this will delete ALL historical sandboxes
+This is for the use case where customers do not wish to store historical data of the environments in their sandbox
+script has "are you sure" prompt added to CLI usage
+USE WITH CAUTION
+"""
 import json
 
 import sys

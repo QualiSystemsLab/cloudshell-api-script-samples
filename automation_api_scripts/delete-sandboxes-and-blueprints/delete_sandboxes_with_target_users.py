@@ -1,3 +1,7 @@
+"""
+Use case here is to remove all historical sandboxes where users are either owners or permitted users of that sandbox
+The goal may be to then delete the users from DB, or just to remove their historical data
+"""
 import json
 from typing import List
 

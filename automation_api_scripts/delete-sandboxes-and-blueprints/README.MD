@@ -33,25 +33,6 @@ Sample commands:
 `python delete_ALL_sandboxes.py -s localhost -u admin -p admin`
 `python delete_ALL_sandboxes.py -s localhost -u admin -p admin --from 01/01/2020 --until 01/01/2021`
 
-## Delete ALL Blueprints
-Deletes all "Regular" type blueprints. Blueprint Templates ignored.
-
-`python delete_ALL_blueprints.py --help`
-```
-usage: Delete ALL blueprints [-h] -s SERVER -u USER -p PASSWORD
-
-Automation API script to delete blueprints
-
-optional arguments:
-  -h, --help            show this help message and exit
-  -s SERVER, --server SERVER
-                        Cloudshell Server User
-  -u USER, --user USER  Cloudshell Server Password
-  -p PASSWORD, --password PASSWORD
-                        Cloudshell Server IP or DNS name
-
-```
-
 Sample command:
 `python delete_ALL_blueprints.py -s localhost -u admin -p admin`
 

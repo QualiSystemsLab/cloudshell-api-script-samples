@@ -1,3 +1,7 @@
+"""
+The general use case here is to delete blueprints owned by a specific user
+Perhaps you want to delete user from DB, or just want to remove their data
+"""
 import json
 
 import sys
