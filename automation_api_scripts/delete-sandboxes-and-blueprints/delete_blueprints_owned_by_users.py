@@ -3,15 +3,32 @@ The general use case here is to delete blueprints owned by a specific user
 Perhaps you want to delete user from DB, or just want to remove their data
 """
 import json
-
 import sys
-from argparse import ArgumentParser
 from typing import List
+from cloudshell.api.cloudshell_api import CloudShellAPISession, TopologyInfo
 
-from common import add_cs_server_args, get_cloudshell_api, get_regular_blueprints_owned_by_users, add_target_user_arg, \
-    validate_cloudshell_users
-import constants as const
-from cloudshell.api.cloudshell_api import CloudShellAPISession
+
+def validate_cloudshell_users(api: CloudShellAPISession, users: List[str]):
+    failed = []
+    for curr_user in users:
+        try:
+            api.GetUserDetails(curr_user)
+        except:
+            failed.append(curr_user)
+    if failed:
+        raise Exception(f"Invalid cloudshell users passed:\n{json.dumps(failed, indent=4)}")
+
+
+def get_regular_blueprints_owned_by_users(api: CloudShellAPISession, owners: List[str]) -> List[TopologyInfo]:
+    all_blueprints = api.GetTopologiesByCategory().Topologies
+    results = []
+    for curr_bp in all_blueprints:
+        details = api.GetTopologyDetails(topologyFullPath=curr_bp)
+        if details.Type == "Regular":
+            for curr_owner in owners:
+                if curr_owner == details.Owner:
+                    results.append(details)
+    return results
 
 
 def delete_user_blueprints(api: CloudShellAPISession, target_users: List[str]):
@@ -39,16 +56,6 @@ def delete_user_blueprints(api: CloudShellAPISession, target_users: List[str]):
 
 
 if __name__ == "__main__":
-    parser = ArgumentParser(prog="Delete ALL blueprints",
-                            description="Automation API script to delete blueprints")
-    add_cs_server_args(parser)
-    add_target_user_arg(parser)
-
-    # unpack args
-    args_dict = vars(parser.parse_args())
-    server = args_dict[const.SERVER_KEY]
-    user = args_dict[const.USER_KEY]
-    password = args_dict[const.PASSWORD_KEY]
-    target_users_str = args_dict[const.TARGET_USERS_KEY]
-    target_users = target_users_str.split(" ")
-    api = get_cloudshell_api(server, user, password)
+    cs_api = CloudShellAPISession("localhost", "admin", "admin", "Global")
+    target_users = ["user a", "user b"]
+    delete_user_blueprints(cs_api, target_users)
