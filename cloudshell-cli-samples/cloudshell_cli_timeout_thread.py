@@ -39,7 +39,7 @@ class CreateSession():
             else:
                 if password:
                     command = '{command}'.format(command=command)
-                out = my_session.send_command(command)
+                out = my_session.send_command(command, timeout=3)
             return out
 
 
@@ -47,11 +47,9 @@ if __name__ == "__main__":
     import cli_credentials
 
     # juniper switch example
-    base_mode = "#"
     cli = CreateSession(host=cli_credentials.HOST,
                         username=cli_credentials.USER,
-                        password=cli_credentials.PASSWORD,
-                        base_mode=base_mode)
-    sample_command = 'hostname'
+                        password=cli_credentials.PASSWORD)
+    sample_command = 'read var1'
     outp = cli.send_terminal_command(sample_command)
     print(outp)
