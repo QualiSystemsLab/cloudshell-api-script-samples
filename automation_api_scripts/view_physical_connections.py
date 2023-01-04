@@ -38,5 +38,5 @@ def get_connection_list(api: CloudShellAPISession, root_resource_name: str):
 
 if __name__ == "__main__":
     api = CloudShellAPISession(host="localhost", username="admin", password="admin", domain="Global")
-    connections = get_connection_list(api, "DUT Mock 1")
+    connections = get_connection_list(api, "DUT Mock 2")
     pass
