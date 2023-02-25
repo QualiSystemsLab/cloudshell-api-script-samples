@@ -15,14 +15,15 @@ class ConnectionData:
     target_resource: str
 
 
-def _recursive_get_connections(children_resources: List[ResourceInfo]):
+def _recursive_get_connections(children_resources: List[ResourceInfo], result: List=None):
     """
     recursively get connections. No child resources is the base case
     :param list[ResourceInfo] children_resources:
     :param connections_list:
     :return:
     """
-    result = []
+    result = result if result else []
+
     for resource in children_resources:
         connections = resource.Connections
         children = resource.ChildResources
@@ -31,7 +32,7 @@ def _recursive_get_connections(children_resources: List[ResourceInfo]):
                 for connection in connections:
                     result.append(ConnectionData(resource.Name, connection.FullPath))
         else:
-            _recursive_get_connections(children)
+            _recursive_get_connections(children, result)
     return result
 
 
